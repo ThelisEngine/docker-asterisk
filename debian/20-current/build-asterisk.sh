@@ -46,6 +46,7 @@ apt-get install --yes -qq --no-install-recommends --no-install-suggests \
   uuid-dev \
   xmlstarlet \
   subversion \
+  sngrep \
 > /dev/null
 
 DEBIAN_FRONTEND=noninteractive \
@@ -76,7 +77,7 @@ menuselect/menuselect --disable BUILD_NATIVE menuselect.makeopts
 menuselect/menuselect --enable BETTER_BACKTRACES menuselect.makeopts
 
 # enable ooh323
-menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
+# menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
 
 # codecs
 # menuselect/menuselect --enable codec_opus menuselect.makeopts

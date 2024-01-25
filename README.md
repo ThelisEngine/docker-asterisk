@@ -15,6 +15,19 @@ Total size of this image for `latest` tag (based on Alpine linux) is:
 And for `debian-stretch-slim-15-current`
 [![](https://images.microbadger.com/badges/image/andrius/asterisk:debian-stretch-slim-15-current.svg)](https://microbadger.com/images/andrius/asterisk:debian-stretch-slim-15-current "Get your own image badge on microbadger.com").
 
+# Build Thello Debian image
+
+In debian/XX-current folder
+
+
+
+```bash
+docker login registry.thelis.be:5001 thelis <password>
+
+docker build -t registry.thelis.be:5001/thelis/asterisk:20-5 .
+docker push registry.thelis.be:5001/thelis/asterisk:20-5
+```
+
 # Custom UID/GID
 
 By default, Asterisk will run as default user (asterisk) with UID and GID assigned by alpine linux, but it's possible to specify then through environment variables:
