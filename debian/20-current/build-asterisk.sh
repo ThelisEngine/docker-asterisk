@@ -47,6 +47,7 @@ apt-get install --yes -qq --no-install-recommends --no-install-suggests \
   xmlstarlet \
   subversion \
   sngrep \
+  iputils-ping \
 > /dev/null
 
 DEBIAN_FRONTEND=noninteractive \
