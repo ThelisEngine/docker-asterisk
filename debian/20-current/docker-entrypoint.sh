@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Enable OpenVPN - Require valid .conf file in /etc/openvpn
+echo "Enable OpenVPN tun interfaces"
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
 # run as user asterisk by default
 ASTERISK_USER=${ASTERISK_USER:-asterisk}
 
