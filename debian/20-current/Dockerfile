@@ -24,8 +24,9 @@ RUN apt-get update && \
     
 RUN mkdir -p /var/lib/asterisk/moh
 RUN mkdir -p /var/lib/asterisk/sounds/tts-sounds
-COPY moh /var/lib/asterisk/moh
+COPY default-moh.gsm /var/lib/asterisk/moh
 COPY beep.gsm /var/lib/asterisk/sounds
+RUN chown -R asterisk:asterisk /var/lib/asterisk
 
 COPY docker-entrypoint.sh /
 
