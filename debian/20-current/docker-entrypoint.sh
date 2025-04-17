@@ -6,6 +6,10 @@ mkdir -p /dev/net
 mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
 
+# Start cron
+echo "Starting cron jobs"
+/etc/init.d/cron start
+
 # run as user asterisk by default
 ASTERISK_USER=${ASTERISK_USER:-asterisk}
 
@@ -20,9 +24,9 @@ if [ "${ASTERISK_UID}" != "" ] && [ "${ASTERISK_GID}" != "" ]; then
   # if they've sent as env variables (i.e. to macth with host user to fix permissions for mounted folders
 
   deluser asterisk && \
-  adduser --gecos "" --no-create-home --uid ${ASTERISK_UID} --disabled-password ${ASTERISK_USER} || exit
+  adduser --gecos "" --no-create-home --uid ${ASTERISK_UID} --gid ${ASTERISK_GID} --disabled-password ${ASTERISK_USER} || exit
 
-  chown -R ${ASTERISK_UID}:${ASTERISK_UID} /etc/asterisk \
+  chown -R ${ASTERISK_UID}:${ASTERISK_GID} /etc/asterisk \
                                            /var/*/asterisk \
                                            /usr/*/asterisk
 fi

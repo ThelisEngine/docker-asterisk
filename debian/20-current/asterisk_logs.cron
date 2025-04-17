@@ -1,0 +1,1 @@
+*/30 * * * * asterisk sh -c 'rm -f /var/log/asterisk/cron.log && /usr/sbin/asterisk_logs >> /var/log/asterisk/cron.log 2>&1'
