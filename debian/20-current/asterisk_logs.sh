@@ -10,7 +10,7 @@ if [ -f "$LOGFILE" ]; then
   FILE_SIZE_MB=$(du -m "$LOGFILE" | cut -f1)
   if [ "$FILE_SIZE_MB" -gt "$SIZE_LIMIT_MB" ]; then
     echo "$(date '+%b %d %H:%M:%S') asterisk_logs[$$]: Rotating Asterisk logs (current size: ${FILE_SIZE_MB}MB)..."
-    asterisk -rx "logger rotate"
+    /usr/sbin/asterisk -rx "logger rotate"
   fi
 fi
 
